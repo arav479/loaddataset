@@ -1,0 +1,1389 @@
+{
+  "yolo_taxonomy": [
+    "EMAIL",
+    "PHONE",
+    "NAME",
+    "STREET_ADDRESS",
+    "CITY",
+    "STATE",
+    "POSTCODE",
+    "COUNTRY",
+    "COMPANY",
+    "DATE_OF_BIRTH",
+    "CREDIT_CARD_NUMBER",
+    "CARD_EXPIRY",
+    "SECURITY_CODE",
+    "CARD_IMAGE",
+    "USERNAME",
+    "PASSWORD",
+    "GIFT_CODE",
+    "PROMO_CODE",
+    "AVATAR",
+    "MAP",
+    "DELIVERY_INSTRUCTIONS",
+    "REVIEW",
+    "USER_RATING",
+    "OTHER_PII"
+  ],
+  "class_to_id": {
+    "EMAIL": 0,
+    "PHONE": 1,
+    "NAME": 2,
+    "STREET_ADDRESS": 3,
+    "CITY": 4,
+    "STATE": 5,
+    "POSTCODE": 6,
+    "COUNTRY": 7,
+    "COMPANY": 8,
+    "DATE_OF_BIRTH": 9,
+    "CREDIT_CARD_NUMBER": 10,
+    "CARD_EXPIRY": 11,
+    "SECURITY_CODE": 12,
+    "CARD_IMAGE": 13,
+    "USERNAME": 14,
+    "PASSWORD": 15,
+    "GIFT_CODE": 16,
+    "PROMO_CODE": 17,
+    "AVATAR": 18,
+    "MAP": 19,
+    "DELIVERY_INSTRUCTIONS": 20,
+    "REVIEW": 21,
+    "USER_RATING": 22,
+    "OTHER_PII": 23
+  },
+  "num_classes": 24,
+  "mappings": [
+    {
+      "original_key": "BACKGROUND",
+      "yolo_class": "EXCLUDE",
+      "reason": "Background is implicit; not an object-detection target."
+    },
+    {
+      "original_key": "PII_ADDRESS",
+      "yolo_class": "STREET_ADDRESS",
+      "reason": "Street line or full address block \u2014 same visual address-text region across billing/alt/per-location/form variants."
+    },
+    {
+      "original_key": "PII_ALT_PHONE",
+      "yolo_class": "PHONE",
+      "reason": "Phone number or a sub-component/representation variant of it (area code, prefix, suffix, line, masked, numeric-only, alternate, billing, or per-location instance) \u2014 all render as the same visual phone-number field."
+    },
+    {
+      "original_key": "PII_ALT_PHONE_AREA",
+      "yolo_class": "PHONE",
+      "reason": "Phone number or a sub-component/representation variant of it (area code, prefix, suffix, line, masked, numeric-only, alternate, billing, or per-location instance) \u2014 all render as the same visual phone-number field."
+    },
+    {
+      "original_key": "PII_ALT_PHONE_PREFIX",
+      "yolo_class": "PHONE",
+      "reason": "Phone number or a sub-component/representation variant of it (area code, prefix, suffix, line, masked, numeric-only, alternate, billing, or per-location instance) \u2014 all render as the same visual phone-number field."
+    },
+    {
+      "original_key": "PII_ALT_PHONE_SUFFIX",
+      "yolo_class": "PHONE",
+      "reason": "Phone number or a sub-component/representation variant of it (area code, prefix, suffix, line, masked, numeric-only, alternate, billing, or per-location instance) \u2014 all render as the same visual phone-number field."
+    },
+    {
+      "original_key": "PII_AVATAR",
+      "yolo_class": "AVATAR",
+      "reason": "Profile picture/avatar image \u2014 visually distinct (photo/image region) from text-field PII."
+    },
+    {
+      "original_key": "PII_BILLING_ADDRESS",
+      "yolo_class": "STREET_ADDRESS",
+      "reason": "Street line or full address block \u2014 same visual address-text region across billing/alt/per-location/form variants."
+    },
+    {
+      "original_key": "PII_BILLING_COMPANY",
+      "yolo_class": "COMPANY",
+      "reason": "Company/organization name field (billing or general)."
+    },
+    {
+      "original_key": "PII_BILLING_EMAIL",
+      "yolo_class": "EMAIL",
+      "reason": "Email address field or an instance/context variant of it (billing, gift, signup, numbered duplicate) \u2014 same visual text-field class."
+    },
+    {
+      "original_key": "PII_BILLING_FIRSTNAME",
+      "yolo_class": "NAME",
+      "reason": "Personal name field: first/last/full name, initials, derived-name, or a named-location label \u2014 all rendered as short personal-name text."
+    },
+    {
+      "original_key": "PII_BILLING_LASTNAME",
+      "yolo_class": "NAME",
+      "reason": "Personal name field: first/last/full name, initials, derived-name, or a named-location label \u2014 all rendered as short personal-name text."
+    },
+    {
+      "original_key": "PII_BILLING_PHONE",
+      "yolo_class": "PHONE",
+      "reason": "Phone number or a sub-component/representation variant of it (area code, prefix, suffix, line, masked, numeric-only, alternate, billing, or per-location instance) \u2014 all render as the same visual phone-number field."
+    },
+    {
+      "original_key": "PII_BILLING_PHONE_ALT",
+      "yolo_class": "PHONE",
+      "reason": "Phone number or a sub-component/representation variant of it (area code, prefix, suffix, line, masked, numeric-only, alternate, billing, or per-location instance) \u2014 all render as the same visual phone-number field."
+    },
+    {
+      "original_key": "PII_BILLING_PHONE_ALT_AREA",
+      "yolo_class": "PHONE",
+      "reason": "Phone number or a sub-component/representation variant of it (area code, prefix, suffix, line, masked, numeric-only, alternate, billing, or per-location instance) \u2014 all render as the same visual phone-number field."
+    },
+    {
+      "original_key": "PII_BILLING_PHONE_AREA",
+      "yolo_class": "PHONE",
+      "reason": "Phone number or a sub-component/representation variant of it (area code, prefix, suffix, line, masked, numeric-only, alternate, billing, or per-location instance) \u2014 all render as the same visual phone-number field."
+    },
+    {
+      "original_key": "PII_BILLING_POSTCODE",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_BILLING_STREET",
+      "yolo_class": "STREET_ADDRESS",
+      "reason": "Street line or full address block \u2014 same visual address-text region across billing/alt/per-location/form variants."
+    },
+    {
+      "original_key": "PII_BILLING_STREET2",
+      "yolo_class": "STREET_ADDRESS",
+      "reason": "Street line or full address block \u2014 same visual address-text region across billing/alt/per-location/form variants."
+    },
+    {
+      "original_key": "PII_CARD_CVV",
+      "yolo_class": "SECURITY_CODE",
+      "reason": "Card CVV \u2014 short numeric verification code, same visual class as other security codes."
+    },
+    {
+      "original_key": "PII_CARD_CVV_NUMERIC",
+      "yolo_class": "SECURITY_CODE",
+      "reason": "Card CVV \u2014 short numeric verification code, same visual class as other security codes."
+    },
+    {
+      "original_key": "PII_CARD_EXPIRY",
+      "yolo_class": "CARD_EXPIRY",
+      "reason": "Card expiration date component (full, split month/year, numeric variant) \u2014 same small text field on the card form."
+    },
+    {
+      "original_key": "PII_CARD_EXPIRY2",
+      "yolo_class": "CARD_EXPIRY",
+      "reason": "Card expiration date component (full, split month/year, numeric variant) \u2014 same small text field on the card form."
+    },
+    {
+      "original_key": "PII_CARD_EXPIRY_MONTH",
+      "yolo_class": "CARD_EXPIRY",
+      "reason": "Card expiration date component (full, split month/year, numeric variant) \u2014 same small text field on the card form."
+    },
+    {
+      "original_key": "PII_CARD_EXPIRY_YEAR",
+      "yolo_class": "CARD_EXPIRY",
+      "reason": "Card expiration date component (full, split month/year, numeric variant) \u2014 same small text field on the card form."
+    },
+    {
+      "original_key": "PII_CARD_EXPIRY_YEAR_NUMERIC",
+      "yolo_class": "CARD_EXPIRY",
+      "reason": "Card expiration date component (full, split month/year, numeric variant) \u2014 same small text field on the card form."
+    },
+    {
+      "original_key": "PII_CARD_IMAGE",
+      "yolo_class": "CARD_IMAGE",
+      "reason": "Rendered image/graphic of the payment card, visually distinct (a card graphic) from a text field, so kept as its own detectable region."
+    },
+    {
+      "original_key": "PII_CARD_IMAGE2",
+      "yolo_class": "CARD_IMAGE",
+      "reason": "Rendered image/graphic of the payment card, visually distinct (a card graphic) from a text field, so kept as its own detectable region."
+    },
+    {
+      "original_key": "PII_CARD_LAST4",
+      "yolo_class": "CREDIT_CARD_NUMBER",
+      "reason": "Card number / last-4 digits \u2014 same sensitive financial-number field, visually a digit string on a card form; representation/instance variant."
+    },
+    {
+      "original_key": "PII_CARD_LAST42",
+      "yolo_class": "CREDIT_CARD_NUMBER",
+      "reason": "Card number / last-4 digits \u2014 same sensitive financial-number field, visually a digit string on a card form; representation/instance variant."
+    },
+    {
+      "original_key": "PII_CARD_LAST4_NUMERIC",
+      "yolo_class": "CREDIT_CARD_NUMBER",
+      "reason": "Card number / last-4 digits \u2014 same sensitive financial-number field, visually a digit string on a card form; representation/instance variant."
+    },
+    {
+      "original_key": "PII_CARD_NAME",
+      "yolo_class": "NAME",
+      "reason": "Cardholder name printed on the card \u2014 visually and semantically a personal name field."
+    },
+    {
+      "original_key": "PII_CARD_NUMBER",
+      "yolo_class": "CREDIT_CARD_NUMBER",
+      "reason": "Card number / last-4 digits \u2014 same sensitive financial-number field, visually a digit string on a card form; representation/instance variant."
+    },
+    {
+      "original_key": "PII_CARD_TYPE",
+      "yolo_class": "EXCLUDE",
+      "reason": "Card network/brand (Visa/Mastercard label or logo) is not personally identifying and not privacy-sensitive; UI/metadata element."
+    },
+    {
+      "original_key": "PII_CITY",
+      "yolo_class": "CITY",
+      "reason": "City field, including per-location instance and UI-context variants (form/modal/confirm/alt) \u2014 same short text field."
+    },
+    {
+      "original_key": "PII_CITY2",
+      "yolo_class": "CITY",
+      "reason": "City field, including per-location instance and UI-context variants (form/modal/confirm/alt) \u2014 same short text field."
+    },
+    {
+      "original_key": "PII_CITY3",
+      "yolo_class": "CITY",
+      "reason": "City field, including per-location instance and UI-context variants (form/modal/confirm/alt) \u2014 same short text field."
+    },
+    {
+      "original_key": "PII_CITY_ALT",
+      "yolo_class": "CITY",
+      "reason": "City field, including per-location instance and UI-context variants (form/modal/confirm/alt) \u2014 same short text field."
+    },
+    {
+      "original_key": "PII_CITY_CONFIRM",
+      "yolo_class": "CITY",
+      "reason": "City field, including per-location instance and UI-context variants (form/modal/confirm/alt) \u2014 same short text field."
+    },
+    {
+      "original_key": "PII_CITY_FORM",
+      "yolo_class": "CITY",
+      "reason": "City field, including per-location instance and UI-context variants (form/modal/confirm/alt) \u2014 same short text field."
+    },
+    {
+      "original_key": "PII_CITY_MODAL",
+      "yolo_class": "CITY",
+      "reason": "City field, including per-location instance and UI-context variants (form/modal/confirm/alt) \u2014 same short text field."
+    },
+    {
+      "original_key": "PII_CITY_STATE",
+      "yolo_class": "STREET_ADDRESS",
+      "reason": "Combined city/state(/zip) line \u2014 a single address text block, grouped with other address text rather than split by sub-field."
+    },
+    {
+      "original_key": "PII_CITY_STATE2",
+      "yolo_class": "STREET_ADDRESS",
+      "reason": "Combined city/state(/zip) line \u2014 a single address text block, grouped with other address text rather than split by sub-field."
+    },
+    {
+      "original_key": "PII_CITY_STATE3",
+      "yolo_class": "STREET_ADDRESS",
+      "reason": "Combined city/state(/zip) line \u2014 a single address text block, grouped with other address text rather than split by sub-field."
+    },
+    {
+      "original_key": "PII_CITY_STATE_ZIP",
+      "yolo_class": "STREET_ADDRESS",
+      "reason": "Combined city/state(/zip) line \u2014 a single address text block, grouped with other address text rather than split by sub-field."
+    },
+    {
+      "original_key": "PII_CITY_STATE_ZIP2",
+      "yolo_class": "STREET_ADDRESS",
+      "reason": "Combined city/state(/zip) line \u2014 a single address text block, grouped with other address text rather than split by sub-field."
+    },
+    {
+      "original_key": "PII_COMPANY",
+      "yolo_class": "COMPANY",
+      "reason": "Company/organization name field (billing or general)."
+    },
+    {
+      "original_key": "PII_COUNTRY",
+      "yolo_class": "COUNTRY",
+      "reason": "Country name or country-code field/form variant \u2014 same short text field."
+    },
+    {
+      "original_key": "PII_COUNTRY_CODE",
+      "yolo_class": "COUNTRY",
+      "reason": "Country name or country-code field/form variant \u2014 same short text field."
+    },
+    {
+      "original_key": "PII_COUNTRY_FORM",
+      "yolo_class": "COUNTRY",
+      "reason": "Country name or country-code field/form variant \u2014 same short text field."
+    },
+    {
+      "original_key": "PII_DELIVERY_INSTRUCTIONS",
+      "yolo_class": "DELIVERY_INSTRUCTIONS",
+      "reason": "Free-text delivery note field."
+    },
+    {
+      "original_key": "PII_DOB",
+      "yolo_class": "DATE_OF_BIRTH",
+      "reason": "Date-of-birth field or a day/month/year sub-component / formatting variant \u2014 same semantic date-of-birth information."
+    },
+    {
+      "original_key": "PII_DOB_DAY",
+      "yolo_class": "DATE_OF_BIRTH",
+      "reason": "Date-of-birth field or a day/month/year sub-component / formatting variant \u2014 same semantic date-of-birth information."
+    },
+    {
+      "original_key": "PII_DOB_DAY_FORMATTED_COMMA",
+      "yolo_class": "DATE_OF_BIRTH",
+      "reason": "Date-of-birth field or a day/month/year sub-component / formatting variant \u2014 same semantic date-of-birth information."
+    },
+    {
+      "original_key": "PII_DOB_DAY_FORMATTED_DOLLAR",
+      "yolo_class": "DATE_OF_BIRTH",
+      "reason": "Date-of-birth field or a day/month/year sub-component / formatting variant \u2014 same semantic date-of-birth information."
+    },
+    {
+      "original_key": "PII_DOB_DAY_FORMATTED_DOLLAR_COMMA",
+      "yolo_class": "DATE_OF_BIRTH",
+      "reason": "Date-of-birth field or a day/month/year sub-component / formatting variant \u2014 same semantic date-of-birth information."
+    },
+    {
+      "original_key": "PII_DOB_DAY_NUMERIC",
+      "yolo_class": "DATE_OF_BIRTH",
+      "reason": "Date-of-birth field or a day/month/year sub-component / formatting variant \u2014 same semantic date-of-birth information."
+    },
+    {
+      "original_key": "PII_DOB_MONTH",
+      "yolo_class": "DATE_OF_BIRTH",
+      "reason": "Date-of-birth field or a day/month/year sub-component / formatting variant \u2014 same semantic date-of-birth information."
+    },
+    {
+      "original_key": "PII_DOB_MONTH_FORMATTED_COMMA",
+      "yolo_class": "DATE_OF_BIRTH",
+      "reason": "Date-of-birth field or a day/month/year sub-component / formatting variant \u2014 same semantic date-of-birth information."
+    },
+    {
+      "original_key": "PII_DOB_YEAR",
+      "yolo_class": "DATE_OF_BIRTH",
+      "reason": "Date-of-birth field or a day/month/year sub-component / formatting variant \u2014 same semantic date-of-birth information."
+    },
+    {
+      "original_key": "PII_DOB_YEAR_NUMERIC",
+      "yolo_class": "DATE_OF_BIRTH",
+      "reason": "Date-of-birth field or a day/month/year sub-component / formatting variant \u2014 same semantic date-of-birth information."
+    },
+    {
+      "original_key": "PII_EMAIL",
+      "yolo_class": "EMAIL",
+      "reason": "Email address field or an instance/context variant of it (billing, gift, signup, numbered duplicate) \u2014 same visual text-field class."
+    },
+    {
+      "original_key": "PII_EMAIL2",
+      "yolo_class": "EMAIL",
+      "reason": "Email address field or an instance/context variant of it (billing, gift, signup, numbered duplicate) \u2014 same visual text-field class."
+    },
+    {
+      "original_key": "PII_EMAIL3",
+      "yolo_class": "EMAIL",
+      "reason": "Email address field or an instance/context variant of it (billing, gift, signup, numbered duplicate) \u2014 same visual text-field class."
+    },
+    {
+      "original_key": "PII_EMAIL_SIGNUP",
+      "yolo_class": "EMAIL",
+      "reason": "Email address field or an instance/context variant of it (billing, gift, signup, numbered duplicate) \u2014 same visual text-field class."
+    },
+    {
+      "original_key": "PII_FIRSTNAME",
+      "yolo_class": "NAME",
+      "reason": "Personal name field: first/last/full name, initials, derived-name, or a named-location label \u2014 all rendered as short personal-name text."
+    },
+    {
+      "original_key": "PII_FIRSTNAME2",
+      "yolo_class": "NAME",
+      "reason": "Personal name field: first/last/full name, initials, derived-name, or a named-location label \u2014 all rendered as short personal-name text."
+    },
+    {
+      "original_key": "PII_FIRSTNAME3",
+      "yolo_class": "NAME",
+      "reason": "Personal name field: first/last/full name, initials, derived-name, or a named-location label \u2014 all rendered as short personal-name text."
+    },
+    {
+      "original_key": "PII_FIRSTNAME_DERIVED",
+      "yolo_class": "NAME",
+      "reason": "Personal name field: first/last/full name, initials, derived-name, or a named-location label \u2014 all rendered as short personal-name text."
+    },
+    {
+      "original_key": "PII_FIRSTNAME_INITIAL",
+      "yolo_class": "NAME",
+      "reason": "Personal name field: first/last/full name, initials, derived-name, or a named-location label \u2014 all rendered as short personal-name text."
+    },
+    {
+      "original_key": "PII_FULLNAME",
+      "yolo_class": "NAME",
+      "reason": "Personal name field: first/last/full name, initials, derived-name, or a named-location label \u2014 all rendered as short personal-name text."
+    },
+    {
+      "original_key": "PII_FULLNAME2",
+      "yolo_class": "NAME",
+      "reason": "Personal name field: first/last/full name, initials, derived-name, or a named-location label \u2014 all rendered as short personal-name text."
+    },
+    {
+      "original_key": "PII_FULLNAME3",
+      "yolo_class": "NAME",
+      "reason": "Personal name field: first/last/full name, initials, derived-name, or a named-location label \u2014 all rendered as short personal-name text."
+    },
+    {
+      "original_key": "PII_FULLNAME4",
+      "yolo_class": "NAME",
+      "reason": "Personal name field: first/last/full name, initials, derived-name, or a named-location label \u2014 all rendered as short personal-name text."
+    },
+    {
+      "original_key": "PII_FULLNAME_DERIVED",
+      "yolo_class": "NAME",
+      "reason": "Personal name field: first/last/full name, initials, derived-name, or a named-location label \u2014 all rendered as short personal-name text."
+    },
+    {
+      "original_key": "PII_FULLNAME_FORM",
+      "yolo_class": "NAME",
+      "reason": "Personal name field: first/last/full name, initials, derived-name, or a named-location label \u2014 all rendered as short personal-name text."
+    },
+    {
+      "original_key": "PII_GIFT_CODE",
+      "yolo_class": "GIFT_CODE",
+      "reason": "Gift-card code, a stored-value credential."
+    },
+    {
+      "original_key": "PII_GIFT_EMAIL",
+      "yolo_class": "EMAIL",
+      "reason": "Email address field or an instance/context variant of it (billing, gift, signup, numbered duplicate) \u2014 same visual text-field class."
+    },
+    {
+      "original_key": "PII_GIFT_FIRSTNAME",
+      "yolo_class": "NAME",
+      "reason": "Personal name field: first/last/full name, initials, derived-name, or a named-location label \u2014 all rendered as short personal-name text."
+    },
+    {
+      "original_key": "PII_GIFT_FULLNAME",
+      "yolo_class": "NAME",
+      "reason": "Personal name field: first/last/full name, initials, derived-name, or a named-location label \u2014 all rendered as short personal-name text."
+    },
+    {
+      "original_key": "PII_GIFT_LASTNAME",
+      "yolo_class": "NAME",
+      "reason": "Personal name field: first/last/full name, initials, derived-name, or a named-location label \u2014 all rendered as short personal-name text."
+    },
+    {
+      "original_key": "PII_GIFT_MESSAGE",
+      "yolo_class": "DELIVERY_INSTRUCTIONS",
+      "reason": "User-authored free-text note on an order form; visually identical multi-line text block to delivery instructions, so merged as one free-text-note class."
+    },
+    {
+      "original_key": "PII_GIFT_MESSAGE2",
+      "yolo_class": "DELIVERY_INSTRUCTIONS",
+      "reason": "User-authored free-text note on an order form; visually identical multi-line text block to delivery instructions, so merged as one free-text-note class."
+    },
+    {
+      "original_key": "PII_GIFT_MESSAGE3",
+      "yolo_class": "DELIVERY_INSTRUCTIONS",
+      "reason": "User-authored free-text note on an order form; visually identical multi-line text block to delivery instructions, so merged as one free-text-note class."
+    },
+    {
+      "original_key": "PII_GIFT_PIN",
+      "yolo_class": "SECURITY_CODE",
+      "reason": "Gift-card PIN serves the same verification/authorization function as a CVV and is visually indistinguishable (short numeric code)."
+    },
+    {
+      "original_key": "PII_INITIALS",
+      "yolo_class": "NAME",
+      "reason": "Personal name field: first/last/full name, initials, derived-name, or a named-location label \u2014 all rendered as short personal-name text."
+    },
+    {
+      "original_key": "PII_JOB_CODE",
+      "yolo_class": "OTHER_PII",
+      "reason": "Ambiguous alphanumeric code whose PII status/visual form cannot be confidently determined from the key name alone."
+    },
+    {
+      "original_key": "PII_LASTNAME",
+      "yolo_class": "NAME",
+      "reason": "Personal name field: first/last/full name, initials, derived-name, or a named-location label \u2014 all rendered as short personal-name text."
+    },
+    {
+      "original_key": "PII_LASTNAME2",
+      "yolo_class": "NAME",
+      "reason": "Personal name field: first/last/full name, initials, derived-name, or a named-location label \u2014 all rendered as short personal-name text."
+    },
+    {
+      "original_key": "PII_LASTNAME3",
+      "yolo_class": "NAME",
+      "reason": "Personal name field: first/last/full name, initials, derived-name, or a named-location label \u2014 all rendered as short personal-name text."
+    },
+    {
+      "original_key": "PII_LASTNAME_DERIVED",
+      "yolo_class": "NAME",
+      "reason": "Personal name field: first/last/full name, initials, derived-name, or a named-location label \u2014 all rendered as short personal-name text."
+    },
+    {
+      "original_key": "PII_LOCATION10_CITY",
+      "yolo_class": "CITY",
+      "reason": "City field, including per-location instance and UI-context variants (form/modal/confirm/alt) \u2014 same short text field."
+    },
+    {
+      "original_key": "PII_LOCATION10_POSTCODE",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_LOCATION10_POSTCODE_EXT",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_LOCATION10_STREET",
+      "yolo_class": "STREET_ADDRESS",
+      "reason": "Street line or full address block \u2014 same visual address-text region across billing/alt/per-location/form variants."
+    },
+    {
+      "original_key": "PII_LOCATION11_CITY",
+      "yolo_class": "CITY",
+      "reason": "City field, including per-location instance and UI-context variants (form/modal/confirm/alt) \u2014 same short text field."
+    },
+    {
+      "original_key": "PII_LOCATION11_POSTCODE",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_LOCATION11_POSTCODE_EXT",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_LOCATION11_STREET",
+      "yolo_class": "STREET_ADDRESS",
+      "reason": "Street line or full address block \u2014 same visual address-text region across billing/alt/per-location/form variants."
+    },
+    {
+      "original_key": "PII_LOCATION12_CITY",
+      "yolo_class": "CITY",
+      "reason": "City field, including per-location instance and UI-context variants (form/modal/confirm/alt) \u2014 same short text field."
+    },
+    {
+      "original_key": "PII_LOCATION12_POSTCODE",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_LOCATION12_POSTCODE_EXT",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_LOCATION12_STREET",
+      "yolo_class": "STREET_ADDRESS",
+      "reason": "Street line or full address block \u2014 same visual address-text region across billing/alt/per-location/form variants."
+    },
+    {
+      "original_key": "PII_LOCATION13_CITY",
+      "yolo_class": "CITY",
+      "reason": "City field, including per-location instance and UI-context variants (form/modal/confirm/alt) \u2014 same short text field."
+    },
+    {
+      "original_key": "PII_LOCATION13_POSTCODE",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_LOCATION13_POSTCODE_EXT",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_LOCATION13_POSTCODE_EXT_NUMERIC",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_LOCATION13_STREET",
+      "yolo_class": "STREET_ADDRESS",
+      "reason": "Street line or full address block \u2014 same visual address-text region across billing/alt/per-location/form variants."
+    },
+    {
+      "original_key": "PII_LOCATION14_CITY",
+      "yolo_class": "CITY",
+      "reason": "City field, including per-location instance and UI-context variants (form/modal/confirm/alt) \u2014 same short text field."
+    },
+    {
+      "original_key": "PII_LOCATION14_POSTCODE",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_LOCATION14_POSTCODE_EXT",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_LOCATION14_STREET",
+      "yolo_class": "STREET_ADDRESS",
+      "reason": "Street line or full address block \u2014 same visual address-text region across billing/alt/per-location/form variants."
+    },
+    {
+      "original_key": "PII_LOCATION15_CITY",
+      "yolo_class": "CITY",
+      "reason": "City field, including per-location instance and UI-context variants (form/modal/confirm/alt) \u2014 same short text field."
+    },
+    {
+      "original_key": "PII_LOCATION15_POSTCODE",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_LOCATION15_POSTCODE_EXT",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_LOCATION15_STREET",
+      "yolo_class": "STREET_ADDRESS",
+      "reason": "Street line or full address block \u2014 same visual address-text region across billing/alt/per-location/form variants."
+    },
+    {
+      "original_key": "PII_LOCATION16_CITY",
+      "yolo_class": "CITY",
+      "reason": "City field, including per-location instance and UI-context variants (form/modal/confirm/alt) \u2014 same short text field."
+    },
+    {
+      "original_key": "PII_LOCATION16_POSTCODE",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_LOCATION16_POSTCODE_EXT",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_LOCATION16_STREET",
+      "yolo_class": "STREET_ADDRESS",
+      "reason": "Street line or full address block \u2014 same visual address-text region across billing/alt/per-location/form variants."
+    },
+    {
+      "original_key": "PII_LOCATION17_CITY",
+      "yolo_class": "CITY",
+      "reason": "City field, including per-location instance and UI-context variants (form/modal/confirm/alt) \u2014 same short text field."
+    },
+    {
+      "original_key": "PII_LOCATION17_POSTCODE",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_LOCATION17_POSTCODE_EXT",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_LOCATION17_POSTCODE_EXT_NUMERIC",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_LOCATION17_STREET",
+      "yolo_class": "STREET_ADDRESS",
+      "reason": "Street line or full address block \u2014 same visual address-text region across billing/alt/per-location/form variants."
+    },
+    {
+      "original_key": "PII_LOCATION18_CITY",
+      "yolo_class": "CITY",
+      "reason": "City field, including per-location instance and UI-context variants (form/modal/confirm/alt) \u2014 same short text field."
+    },
+    {
+      "original_key": "PII_LOCATION18_POSTCODE",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_LOCATION18_POSTCODE_EXT",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_LOCATION18_POSTCODE_EXT_NUMERIC",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_LOCATION18_STREET",
+      "yolo_class": "STREET_ADDRESS",
+      "reason": "Street line or full address block \u2014 same visual address-text region across billing/alt/per-location/form variants."
+    },
+    {
+      "original_key": "PII_LOCATION19_CITY",
+      "yolo_class": "CITY",
+      "reason": "City field, including per-location instance and UI-context variants (form/modal/confirm/alt) \u2014 same short text field."
+    },
+    {
+      "original_key": "PII_LOCATION19_POSTCODE",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_LOCATION19_POSTCODE_EXT",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_LOCATION19_POSTCODE_EXT_NUMERIC",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_LOCATION19_STREET",
+      "yolo_class": "STREET_ADDRESS",
+      "reason": "Street line or full address block \u2014 same visual address-text region across billing/alt/per-location/form variants."
+    },
+    {
+      "original_key": "PII_LOCATION1_CITY",
+      "yolo_class": "CITY",
+      "reason": "City field, including per-location instance and UI-context variants (form/modal/confirm/alt) \u2014 same short text field."
+    },
+    {
+      "original_key": "PII_LOCATION1_CITY_STATE_ZIP",
+      "yolo_class": "STREET_ADDRESS",
+      "reason": "Combined city/state(/zip) line \u2014 a single address text block, grouped with other address text rather than split by sub-field."
+    },
+    {
+      "original_key": "PII_LOCATION1_NAME",
+      "yolo_class": "NAME",
+      "reason": "Personal name field: first/last/full name, initials, derived-name, or a named-location label \u2014 all rendered as short personal-name text."
+    },
+    {
+      "original_key": "PII_LOCATION1_PHONE",
+      "yolo_class": "PHONE",
+      "reason": "Phone number or a sub-component/representation variant of it (area code, prefix, suffix, line, masked, numeric-only, alternate, billing, or per-location instance) \u2014 all render as the same visual phone-number field."
+    },
+    {
+      "original_key": "PII_LOCATION1_POSTCODE",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_LOCATION1_POSTCODE_EXT",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_LOCATION1_STATE",
+      "yolo_class": "STATE",
+      "reason": "State/province field, full name or abbreviation, including per-location and form variants."
+    },
+    {
+      "original_key": "PII_LOCATION1_STREET",
+      "yolo_class": "STREET_ADDRESS",
+      "reason": "Street line or full address block \u2014 same visual address-text region across billing/alt/per-location/form variants."
+    },
+    {
+      "original_key": "PII_LOCATION20_CITY",
+      "yolo_class": "CITY",
+      "reason": "City field, including per-location instance and UI-context variants (form/modal/confirm/alt) \u2014 same short text field."
+    },
+    {
+      "original_key": "PII_LOCATION20_POSTCODE",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_LOCATION20_POSTCODE_EXT",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_LOCATION20_STREET",
+      "yolo_class": "STREET_ADDRESS",
+      "reason": "Street line or full address block \u2014 same visual address-text region across billing/alt/per-location/form variants."
+    },
+    {
+      "original_key": "PII_LOCATION21_CITY",
+      "yolo_class": "CITY",
+      "reason": "City field, including per-location instance and UI-context variants (form/modal/confirm/alt) \u2014 same short text field."
+    },
+    {
+      "original_key": "PII_LOCATION22_CITY",
+      "yolo_class": "CITY",
+      "reason": "City field, including per-location instance and UI-context variants (form/modal/confirm/alt) \u2014 same short text field."
+    },
+    {
+      "original_key": "PII_LOCATION23_POSTCODE_EXT",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_LOCATION23_POSTCODE_EXT_NUMERIC",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_LOCATION25_POSTCODE_EXT",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_LOCATION25_POSTCODE_EXT_NUMERIC",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_LOCATION2_CITY",
+      "yolo_class": "CITY",
+      "reason": "City field, including per-location instance and UI-context variants (form/modal/confirm/alt) \u2014 same short text field."
+    },
+    {
+      "original_key": "PII_LOCATION2_CITY_STATE_ZIP",
+      "yolo_class": "STREET_ADDRESS",
+      "reason": "Combined city/state(/zip) line \u2014 a single address text block, grouped with other address text rather than split by sub-field."
+    },
+    {
+      "original_key": "PII_LOCATION2_NAME",
+      "yolo_class": "NAME",
+      "reason": "Personal name field: first/last/full name, initials, derived-name, or a named-location label \u2014 all rendered as short personal-name text."
+    },
+    {
+      "original_key": "PII_LOCATION2_PHONE",
+      "yolo_class": "PHONE",
+      "reason": "Phone number or a sub-component/representation variant of it (area code, prefix, suffix, line, masked, numeric-only, alternate, billing, or per-location instance) \u2014 all render as the same visual phone-number field."
+    },
+    {
+      "original_key": "PII_LOCATION2_POSTCODE",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_LOCATION2_POSTCODE_EXT",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_LOCATION2_POSTCODE_EXT_NUMERIC",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_LOCATION2_STATE",
+      "yolo_class": "STATE",
+      "reason": "State/province field, full name or abbreviation, including per-location and form variants."
+    },
+    {
+      "original_key": "PII_LOCATION2_STREET",
+      "yolo_class": "STREET_ADDRESS",
+      "reason": "Street line or full address block \u2014 same visual address-text region across billing/alt/per-location/form variants."
+    },
+    {
+      "original_key": "PII_LOCATION3_CITY",
+      "yolo_class": "CITY",
+      "reason": "City field, including per-location instance and UI-context variants (form/modal/confirm/alt) \u2014 same short text field."
+    },
+    {
+      "original_key": "PII_LOCATION3_CITY_STATE_ZIP",
+      "yolo_class": "STREET_ADDRESS",
+      "reason": "Combined city/state(/zip) line \u2014 a single address text block, grouped with other address text rather than split by sub-field."
+    },
+    {
+      "original_key": "PII_LOCATION3_NAME",
+      "yolo_class": "NAME",
+      "reason": "Personal name field: first/last/full name, initials, derived-name, or a named-location label \u2014 all rendered as short personal-name text."
+    },
+    {
+      "original_key": "PII_LOCATION3_PHONE",
+      "yolo_class": "PHONE",
+      "reason": "Phone number or a sub-component/representation variant of it (area code, prefix, suffix, line, masked, numeric-only, alternate, billing, or per-location instance) \u2014 all render as the same visual phone-number field."
+    },
+    {
+      "original_key": "PII_LOCATION3_POSTCODE",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_LOCATION3_POSTCODE_EXT",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_LOCATION3_STATE",
+      "yolo_class": "STATE",
+      "reason": "State/province field, full name or abbreviation, including per-location and form variants."
+    },
+    {
+      "original_key": "PII_LOCATION3_STREET",
+      "yolo_class": "STREET_ADDRESS",
+      "reason": "Street line or full address block \u2014 same visual address-text region across billing/alt/per-location/form variants."
+    },
+    {
+      "original_key": "PII_LOCATION4_CITY",
+      "yolo_class": "CITY",
+      "reason": "City field, including per-location instance and UI-context variants (form/modal/confirm/alt) \u2014 same short text field."
+    },
+    {
+      "original_key": "PII_LOCATION4_CITY_STATE_ZIP",
+      "yolo_class": "STREET_ADDRESS",
+      "reason": "Combined city/state(/zip) line \u2014 a single address text block, grouped with other address text rather than split by sub-field."
+    },
+    {
+      "original_key": "PII_LOCATION4_NAME",
+      "yolo_class": "NAME",
+      "reason": "Personal name field: first/last/full name, initials, derived-name, or a named-location label \u2014 all rendered as short personal-name text."
+    },
+    {
+      "original_key": "PII_LOCATION4_PHONE",
+      "yolo_class": "PHONE",
+      "reason": "Phone number or a sub-component/representation variant of it (area code, prefix, suffix, line, masked, numeric-only, alternate, billing, or per-location instance) \u2014 all render as the same visual phone-number field."
+    },
+    {
+      "original_key": "PII_LOCATION4_POSTCODE",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_LOCATION4_POSTCODE_EXT",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_LOCATION4_STATE",
+      "yolo_class": "STATE",
+      "reason": "State/province field, full name or abbreviation, including per-location and form variants."
+    },
+    {
+      "original_key": "PII_LOCATION4_STREET",
+      "yolo_class": "STREET_ADDRESS",
+      "reason": "Street line or full address block \u2014 same visual address-text region across billing/alt/per-location/form variants."
+    },
+    {
+      "original_key": "PII_LOCATION5_CITY",
+      "yolo_class": "CITY",
+      "reason": "City field, including per-location instance and UI-context variants (form/modal/confirm/alt) \u2014 same short text field."
+    },
+    {
+      "original_key": "PII_LOCATION5_CITY_STATE_ZIP",
+      "yolo_class": "STREET_ADDRESS",
+      "reason": "Combined city/state(/zip) line \u2014 a single address text block, grouped with other address text rather than split by sub-field."
+    },
+    {
+      "original_key": "PII_LOCATION5_NAME",
+      "yolo_class": "NAME",
+      "reason": "Personal name field: first/last/full name, initials, derived-name, or a named-location label \u2014 all rendered as short personal-name text."
+    },
+    {
+      "original_key": "PII_LOCATION5_POSTCODE",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_LOCATION5_POSTCODE_EXT",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_LOCATION5_STATE",
+      "yolo_class": "STATE",
+      "reason": "State/province field, full name or abbreviation, including per-location and form variants."
+    },
+    {
+      "original_key": "PII_LOCATION5_STREET",
+      "yolo_class": "STREET_ADDRESS",
+      "reason": "Street line or full address block \u2014 same visual address-text region across billing/alt/per-location/form variants."
+    },
+    {
+      "original_key": "PII_LOCATION6_CITY",
+      "yolo_class": "CITY",
+      "reason": "City field, including per-location instance and UI-context variants (form/modal/confirm/alt) \u2014 same short text field."
+    },
+    {
+      "original_key": "PII_LOCATION6_CITY_STATE_ZIP",
+      "yolo_class": "STREET_ADDRESS",
+      "reason": "Combined city/state(/zip) line \u2014 a single address text block, grouped with other address text rather than split by sub-field."
+    },
+    {
+      "original_key": "PII_LOCATION6_POSTCODE",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_LOCATION6_POSTCODE_EXT",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_LOCATION6_STREET",
+      "yolo_class": "STREET_ADDRESS",
+      "reason": "Street line or full address block \u2014 same visual address-text region across billing/alt/per-location/form variants."
+    },
+    {
+      "original_key": "PII_LOCATION7_CITY",
+      "yolo_class": "CITY",
+      "reason": "City field, including per-location instance and UI-context variants (form/modal/confirm/alt) \u2014 same short text field."
+    },
+    {
+      "original_key": "PII_LOCATION7_CITY_STATE_ZIP",
+      "yolo_class": "STREET_ADDRESS",
+      "reason": "Combined city/state(/zip) line \u2014 a single address text block, grouped with other address text rather than split by sub-field."
+    },
+    {
+      "original_key": "PII_LOCATION7_POSTCODE",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_LOCATION7_POSTCODE_EXT",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_LOCATION7_STREET",
+      "yolo_class": "STREET_ADDRESS",
+      "reason": "Street line or full address block \u2014 same visual address-text region across billing/alt/per-location/form variants."
+    },
+    {
+      "original_key": "PII_LOCATION8_CITY",
+      "yolo_class": "CITY",
+      "reason": "City field, including per-location instance and UI-context variants (form/modal/confirm/alt) \u2014 same short text field."
+    },
+    {
+      "original_key": "PII_LOCATION8_POSTCODE",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_LOCATION8_POSTCODE_EXT",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_LOCATION8_POSTCODE_EXT_NUMERIC",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_LOCATION8_STREET",
+      "yolo_class": "STREET_ADDRESS",
+      "reason": "Street line or full address block \u2014 same visual address-text region across billing/alt/per-location/form variants."
+    },
+    {
+      "original_key": "PII_LOCATION9_CITY",
+      "yolo_class": "CITY",
+      "reason": "City field, including per-location instance and UI-context variants (form/modal/confirm/alt) \u2014 same short text field."
+    },
+    {
+      "original_key": "PII_LOCATION9_POSTCODE",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_LOCATION9_POSTCODE_EXT",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_LOCATION9_POSTCODE_EXT_NUMERIC",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_LOCATION9_STREET",
+      "yolo_class": "STREET_ADDRESS",
+      "reason": "Street line or full address block \u2014 same visual address-text region across billing/alt/per-location/form variants."
+    },
+    {
+      "original_key": "PII_LOGIN_PASSWORD",
+      "yolo_class": "PASSWORD",
+      "reason": "Login password field, including confirmation and numbered duplicate variants."
+    },
+    {
+      "original_key": "PII_LOGIN_PASSWORD2",
+      "yolo_class": "PASSWORD",
+      "reason": "Login password field, including confirmation and numbered duplicate variants."
+    },
+    {
+      "original_key": "PII_LOGIN_PASSWORD_CONFIRM",
+      "yolo_class": "PASSWORD",
+      "reason": "Login password field, including confirmation and numbered duplicate variants."
+    },
+    {
+      "original_key": "PII_LOGIN_USERNAME",
+      "yolo_class": "USERNAME",
+      "reason": "Login username field or numbered duplicate/instance."
+    },
+    {
+      "original_key": "PII_LOGIN_USERNAME2",
+      "yolo_class": "USERNAME",
+      "reason": "Login username field or numbered duplicate/instance."
+    },
+    {
+      "original_key": "PII_LOGIN_USERNAME3",
+      "yolo_class": "USERNAME",
+      "reason": "Login username field or numbered duplicate/instance."
+    },
+    {
+      "original_key": "PII_MAP",
+      "yolo_class": "MAP",
+      "reason": "Embedded map widget (can reveal address/location) \u2014 visually distinct graphical region."
+    },
+    {
+      "original_key": "PII_NAME_FULL_DERIVED",
+      "yolo_class": "NAME",
+      "reason": "Personal name field: first/last/full name, initials, derived-name, or a named-location label \u2014 all rendered as short personal-name text."
+    },
+    {
+      "original_key": "PII_PHONE",
+      "yolo_class": "PHONE",
+      "reason": "Phone number or a sub-component/representation variant of it (area code, prefix, suffix, line, masked, numeric-only, alternate, billing, or per-location instance) \u2014 all render as the same visual phone-number field."
+    },
+    {
+      "original_key": "PII_PHONE2",
+      "yolo_class": "PHONE",
+      "reason": "Phone number or a sub-component/representation variant of it (area code, prefix, suffix, line, masked, numeric-only, alternate, billing, or per-location instance) \u2014 all render as the same visual phone-number field."
+    },
+    {
+      "original_key": "PII_PHONE2_NUMERIC",
+      "yolo_class": "PHONE",
+      "reason": "Phone number or a sub-component/representation variant of it (area code, prefix, suffix, line, masked, numeric-only, alternate, billing, or per-location instance) \u2014 all render as the same visual phone-number field."
+    },
+    {
+      "original_key": "PII_PHONE3",
+      "yolo_class": "PHONE",
+      "reason": "Phone number or a sub-component/representation variant of it (area code, prefix, suffix, line, masked, numeric-only, alternate, billing, or per-location instance) \u2014 all render as the same visual phone-number field."
+    },
+    {
+      "original_key": "PII_PHONE3_NUMERIC",
+      "yolo_class": "PHONE",
+      "reason": "Phone number or a sub-component/representation variant of it (area code, prefix, suffix, line, masked, numeric-only, alternate, billing, or per-location instance) \u2014 all render as the same visual phone-number field."
+    },
+    {
+      "original_key": "PII_PHONE_ALT",
+      "yolo_class": "PHONE",
+      "reason": "Phone number or a sub-component/representation variant of it (area code, prefix, suffix, line, masked, numeric-only, alternate, billing, or per-location instance) \u2014 all render as the same visual phone-number field."
+    },
+    {
+      "original_key": "PII_PHONE_ALT_AREA",
+      "yolo_class": "PHONE",
+      "reason": "Phone number or a sub-component/representation variant of it (area code, prefix, suffix, line, masked, numeric-only, alternate, billing, or per-location instance) \u2014 all render as the same visual phone-number field."
+    },
+    {
+      "original_key": "PII_PHONE_ALT_LINE",
+      "yolo_class": "PHONE",
+      "reason": "Phone number or a sub-component/representation variant of it (area code, prefix, suffix, line, masked, numeric-only, alternate, billing, or per-location instance) \u2014 all render as the same visual phone-number field."
+    },
+    {
+      "original_key": "PII_PHONE_ALT_PREFIX",
+      "yolo_class": "PHONE",
+      "reason": "Phone number or a sub-component/representation variant of it (area code, prefix, suffix, line, masked, numeric-only, alternate, billing, or per-location instance) \u2014 all render as the same visual phone-number field."
+    },
+    {
+      "original_key": "PII_PHONE_ALT_SUFFIX",
+      "yolo_class": "PHONE",
+      "reason": "Phone number or a sub-component/representation variant of it (area code, prefix, suffix, line, masked, numeric-only, alternate, billing, or per-location instance) \u2014 all render as the same visual phone-number field."
+    },
+    {
+      "original_key": "PII_PHONE_AREA",
+      "yolo_class": "PHONE",
+      "reason": "Phone number or a sub-component/representation variant of it (area code, prefix, suffix, line, masked, numeric-only, alternate, billing, or per-location instance) \u2014 all render as the same visual phone-number field."
+    },
+    {
+      "original_key": "PII_PHONE_AREA_NUMERIC",
+      "yolo_class": "PHONE",
+      "reason": "Phone number or a sub-component/representation variant of it (area code, prefix, suffix, line, masked, numeric-only, alternate, billing, or per-location instance) \u2014 all render as the same visual phone-number field."
+    },
+    {
+      "original_key": "PII_PHONE_DIGITS",
+      "yolo_class": "PHONE",
+      "reason": "Phone number or a sub-component/representation variant of it (area code, prefix, suffix, line, masked, numeric-only, alternate, billing, or per-location instance) \u2014 all render as the same visual phone-number field."
+    },
+    {
+      "original_key": "PII_PHONE_FORM",
+      "yolo_class": "PHONE",
+      "reason": "Phone number or a sub-component/representation variant of it (area code, prefix, suffix, line, masked, numeric-only, alternate, billing, or per-location instance) \u2014 all render as the same visual phone-number field."
+    },
+    {
+      "original_key": "PII_PHONE_LAST4",
+      "yolo_class": "PHONE",
+      "reason": "Phone number or a sub-component/representation variant of it (area code, prefix, suffix, line, masked, numeric-only, alternate, billing, or per-location instance) \u2014 all render as the same visual phone-number field."
+    },
+    {
+      "original_key": "PII_PHONE_LINE",
+      "yolo_class": "PHONE",
+      "reason": "Phone number or a sub-component/representation variant of it (area code, prefix, suffix, line, masked, numeric-only, alternate, billing, or per-location instance) \u2014 all render as the same visual phone-number field."
+    },
+    {
+      "original_key": "PII_PHONE_LINE_NUMERIC",
+      "yolo_class": "PHONE",
+      "reason": "Phone number or a sub-component/representation variant of it (area code, prefix, suffix, line, masked, numeric-only, alternate, billing, or per-location instance) \u2014 all render as the same visual phone-number field."
+    },
+    {
+      "original_key": "PII_PHONE_MASKED",
+      "yolo_class": "PHONE",
+      "reason": "Phone number or a sub-component/representation variant of it (area code, prefix, suffix, line, masked, numeric-only, alternate, billing, or per-location instance) \u2014 all render as the same visual phone-number field."
+    },
+    {
+      "original_key": "PII_PHONE_NUMERIC",
+      "yolo_class": "PHONE",
+      "reason": "Phone number or a sub-component/representation variant of it (area code, prefix, suffix, line, masked, numeric-only, alternate, billing, or per-location instance) \u2014 all render as the same visual phone-number field."
+    },
+    {
+      "original_key": "PII_PHONE_PREFIX",
+      "yolo_class": "PHONE",
+      "reason": "Phone number or a sub-component/representation variant of it (area code, prefix, suffix, line, masked, numeric-only, alternate, billing, or per-location instance) \u2014 all render as the same visual phone-number field."
+    },
+    {
+      "original_key": "PII_PHONE_PREFIX_NUMERIC",
+      "yolo_class": "PHONE",
+      "reason": "Phone number or a sub-component/representation variant of it (area code, prefix, suffix, line, masked, numeric-only, alternate, billing, or per-location instance) \u2014 all render as the same visual phone-number field."
+    },
+    {
+      "original_key": "PII_PHONE_SUFFIX",
+      "yolo_class": "PHONE",
+      "reason": "Phone number or a sub-component/representation variant of it (area code, prefix, suffix, line, masked, numeric-only, alternate, billing, or per-location instance) \u2014 all render as the same visual phone-number field."
+    },
+    {
+      "original_key": "PII_PHONE_SUFFIX2",
+      "yolo_class": "PHONE",
+      "reason": "Phone number or a sub-component/representation variant of it (area code, prefix, suffix, line, masked, numeric-only, alternate, billing, or per-location instance) \u2014 all render as the same visual phone-number field."
+    },
+    {
+      "original_key": "PII_PHONE_SUFFIX_NUMERIC",
+      "yolo_class": "PHONE",
+      "reason": "Phone number or a sub-component/representation variant of it (area code, prefix, suffix, line, masked, numeric-only, alternate, billing, or per-location instance) \u2014 all render as the same visual phone-number field."
+    },
+    {
+      "original_key": "PII_POSTCODE",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_POSTCODE2",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_POSTCODE3",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_POSTCODE_EXT",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_POSTCODE_EXT_NUMERIC",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_POSTCODE_FORM",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_POSTCODE_FULL",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_POSTCODE_NUMERIC",
+      "yolo_class": "POSTCODE",
+      "reason": "Postal/ZIP code field, including extension (+4), numeric-only, full, and per-location variants."
+    },
+    {
+      "original_key": "PII_PROMO_CODE",
+      "yolo_class": "PROMO_CODE",
+      "reason": "Promotional/discount code \u2014 lower privacy sensitivity than a gift code, kept as a separate class."
+    },
+    {
+      "original_key": "PII_REVIEW",
+      "yolo_class": "REVIEW",
+      "reason": "User-written product/service review text \u2014 not PII, but sensitive user-generated content worth localizing."
+    },
+    {
+      "original_key": "PII_SECURITY_CODE",
+      "yolo_class": "SECURITY_CODE",
+      "reason": "Explicit security/verification code field, same class as CVV."
+    },
+    {
+      "original_key": "PII_STATE",
+      "yolo_class": "STATE",
+      "reason": "State/province field, full name or abbreviation, including per-location and form variants."
+    },
+    {
+      "original_key": "PII_STATE2",
+      "yolo_class": "STATE",
+      "reason": "State/province field, full name or abbreviation, including per-location and form variants."
+    },
+    {
+      "original_key": "PII_STATE_ABBR",
+      "yolo_class": "STATE",
+      "reason": "State/province field, full name or abbreviation, including per-location and form variants."
+    },
+    {
+      "original_key": "PII_STATE_ABBR2",
+      "yolo_class": "STATE",
+      "reason": "State/province field, full name or abbreviation, including per-location and form variants."
+    },
+    {
+      "original_key": "PII_STATE_ABBR3",
+      "yolo_class": "STATE",
+      "reason": "State/province field, full name or abbreviation, including per-location and form variants."
+    },
+    {
+      "original_key": "PII_STATE_FORM",
+      "yolo_class": "STATE",
+      "reason": "State/province field, full name or abbreviation, including per-location and form variants."
+    },
+    {
+      "original_key": "PII_STREET",
+      "yolo_class": "STREET_ADDRESS",
+      "reason": "Street line or full address block \u2014 same visual address-text region across billing/alt/per-location/form variants."
+    },
+    {
+      "original_key": "PII_STREET2",
+      "yolo_class": "STREET_ADDRESS",
+      "reason": "Street line or full address block \u2014 same visual address-text region across billing/alt/per-location/form variants."
+    },
+    {
+      "original_key": "PII_STREET_ALT",
+      "yolo_class": "STREET_ADDRESS",
+      "reason": "Street line or full address block \u2014 same visual address-text region across billing/alt/per-location/form variants."
+    },
+    {
+      "original_key": "PII_STREET_FORM",
+      "yolo_class": "STREET_ADDRESS",
+      "reason": "Street line or full address block \u2014 same visual address-text region across billing/alt/per-location/form variants."
+    },
+    {
+      "original_key": "PII_USER_RATING",
+      "yolo_class": "USER_RATING",
+      "reason": "Star/numeric rating widget \u2014 non-PII UI element with a distinct visual (icon/stars), useful to localize and exclude from PII redaction."
+    },
+    {
+      "original_key": "PII_WALMART_CASH",
+      "yolo_class": "GIFT_CODE",
+      "reason": "Store-credit/gift-balance value tied to an account, same semantic and privacy category as a gift code."
+    }
+  ],
+  "summary": {
+    "total_webpii_keys_analyzed": 260,
+    "excluded_count": 2,
+    "other_pii_count": 1,
+    "class_distribution": {
+      "POSTCODE": 60,
+      "STREET_ADDRESS": 40,
+      "PHONE": 36,
+      "CITY": 29,
+      "NAME": 28,
+      "STATE": 11,
+      "DATE_OF_BIRTH": 10,
+      "EMAIL": 6,
+      "CARD_EXPIRY": 5,
+      "SECURITY_CODE": 4,
+      "CREDIT_CARD_NUMBER": 4,
+      "DELIVERY_INSTRUCTIONS": 4,
+      "COUNTRY": 3,
+      "PASSWORD": 3,
+      "USERNAME": 3,
+      "EXCLUDE": 2,
+      "COMPANY": 2,
+      "CARD_IMAGE": 2,
+      "GIFT_CODE": 2,
+      "AVATAR": 1,
+      "OTHER_PII": 1,
+      "MAP": 1,
+      "PROMO_CODE": 1,
+      "REVIEW": 1,
+      "USER_RATING": 1
+    }
+  }
+}

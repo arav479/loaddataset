@@ -1,0 +1,8 @@
+# Core dependencies for YOLO11 fine-tuning on Linux / DGX
+ultralytics>=8.3.0
+torch>=2.0.0
+torchvision
+pyyaml>=6.0
+numpy>=1.23.0
+opencv-python-headless>=4.8.0
+pillow>=9.5.0
